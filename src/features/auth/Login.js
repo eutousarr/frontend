@@ -8,7 +8,7 @@ import useTitle from '../../hooks/useTitle'
 import PulseLoader from 'react-spinners/PulseLoader'
 
 const Login = () => {
-    useTitle('Employee Login')
+    useTitle('Kis@rr-Web | Connexion')
 
     const userRef = useRef()
     const errRef = useRef()

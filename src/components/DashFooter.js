@@ -30,6 +30,7 @@ const DashFooter = () => {
             {goHomeButton}
             <p>Current User: {username}</p>
             <p>Status: {status}</p>
+            <p>kisarrwev@gmai.com</p>
         </footer>
     )
     return content

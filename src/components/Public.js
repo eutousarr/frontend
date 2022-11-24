@@ -4,21 +4,21 @@ const Public = () => {
     const content = (
         <section className="public">
             <header>
-                <h1>Welcome to <span className="nowrap">Dan D. Repairs!</span></h1>
+                <h1>Welcome to <span className="nowrap">kis@rr-Web</span></h1>
             </header>
             <main className="public__main">
-                <p>Located in Beautiful Downtown Foo City, Dan D. Repairs  provides a trained staff ready to meet your tech repair needs.</p>
+                <p>Basé dans le quartier Manguiline Plateau, nous sommes heureux de votre visite. Nous sommes prêts à satisfaire vos demandes.</p>
                 <address className="public__addr">
-                    Dan D. Repairs<br />
-                    555 Foo Drive<br />
-                    Foo City, CA 12345<br />
-                    <a href="tel:+15555555555">(555) 555-5555</a>
+                    Kis@rr-Web<br />
+                    Manguilne Plateau<br />
+                    Bignona, Ziguinchor<br />
+                    <a href="tel:+221785300360">(221) 78 530 03 60</a>
                 </address>
                 <br />
-                <p>Owner: Dan Davidson</p>
+                <p>Owner: KiSarr</p>
             </main>
             <footer>
-                <Link to="/login">Employee Login</Link>
+                <Link to="/login">Connexion</Link>
             </footer>
         </section>
 
