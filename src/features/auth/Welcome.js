@@ -21,6 +21,11 @@ const Welcome = () => {
             <p><Link to="/dash/notes">Voir les Notes</Link></p>
 
             <p><Link to="/dash/notes/new">Ajouter une Note</Link></p>
+            <hr />
+            <p><Link to="/dash/matieres">Voir les Matieres</Link></p>
+
+            <p><Link to="/dash/matieres/new">Ajouter une Matiere</Link></p>
+            <hr />
 
             {(isManager || isAdmin) && <p><Link to="/dash/users">Utilisateurs</Link></p>}
 

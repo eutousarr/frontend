@@ -4,12 +4,18 @@ import Public from './components/Public'
 import Login from './features/auth/Login';
 import DashLayout from './components/DashLayout'
 import Welcome from './features/auth/Welcome'
-import NotesList from './features/notes/NotesList'
 import UsersList from './features/users/UsersList'
 import EditUser from './features/users/EditUser'
 import NewUserForm from './features/users/NewUserForm'
+import NotesList from './features/notes/NotesList'
 import EditNote from './features/notes/EditNote'
 import NewNote from './features/notes/NewNote'
+import MatieresList from './features/matieres/MatieresList'
+import EditMatiere from './features/matieres/EditMatiere'
+import NewMatiere from './features/matieres/NewMatiere'
+import CategorysList from './features/categories/CategorysList'
+import EditCategory from './features/categories/EditCategory'
+import NewCategory from './features/categories/NewCategory'
 import Prefetch from './features/auth/Prefetch'
 import PersistLogin from './features/auth/PersistLogin'
 import RequireAuth from './features/auth/RequireAuth'
@@ -46,6 +52,18 @@ function App() {
                   <Route index element={<NotesList />} />
                   <Route path=":id" element={<EditNote />} />
                   <Route path="new" element={<NewNote />} />
+                </Route>
+
+                <Route path="matieres">
+                  <Route index element={<MatieresList />} />
+                  <Route path=":id" element={<EditMatiere />} />
+                  <Route path="new" element={<NewMatiere />} />
+                </Route>
+                
+                <Route path="categories">
+                  <Route index element={<CategorysList />} />
+                  <Route path=":id" element={<EditCategory />} />
+                  <Route path="new" element={<NewCategory />} />
                 </Route>
 
               </Route>{/* End Dash */}

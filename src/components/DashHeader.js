@@ -5,7 +5,8 @@ import {
     faFilePen,
     faUserGear,
     faUserPlus,
-    faRightFromBracket
+    faRightFromBracket,
+    faEnvelope,
 } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { useSendLogoutMutation } from '../features/auth/authApiSlice'
@@ -15,6 +16,8 @@ import PulseLoader from 'react-spinners/PulseLoader'
 const DASH_REGEX = /^\/dash(\/)?$/
 const NOTES_REGEX = /^\/dash\/notes(\/)?$/
 const USERS_REGEX = /^\/dash\/users(\/)?$/
+const MATIERES_REGEX = /^\/dash\/matieres(\/)?$/
+const CATEGORYS_REGEX = /^\/dash\/categories(\/)?$/
 
 const DashHeader = () => {
     const { isManager, isAdmin } = useAuth()
@@ -35,11 +38,15 @@ const DashHeader = () => {
 
     const onNewNoteClicked = () => navigate('/dash/notes/new')
     const onNewUserClicked = () => navigate('/dash/users/new')
+    const onNewMatiereClicked = () => navigate('/dash/matieres/new')
+    const onNewCategoryClicked = () => navigate('/dash/categories/new')
     const onNotesClicked = () => navigate('/dash/notes')
     const onUsersClicked = () => navigate('/dash/users')
+    const onMatieresClicked = () => navigate('/dash/matieres')
+    const onCategorysClicked = () => navigate('/dash/categories')
 
     let dashClass = null
-    if (!DASH_REGEX.test(pathname) && !NOTES_REGEX.test(pathname) && !USERS_REGEX.test(pathname)) {
+    if (!DASH_REGEX.test(pathname) && !NOTES_REGEX.test(pathname) && !USERS_REGEX.test(pathname) && !MATIERES_REGEX.test(pathname) && !CATEGORYS_REGEX.test(pathname)) {
         dashClass = "dash-header__container--small"
     }
 
@@ -52,6 +59,34 @@ const DashHeader = () => {
                 onClick={onNewNoteClicked}
             >
                 <FontAwesomeIcon icon={faFileCirclePlus} />
+            </button>
+        )
+    }
+    
+    let newMatiereButton = null
+    if (MATIERES_REGEX.test(pathname)) {
+        newMatiereButton = (
+            <button
+                className="icon-button"
+                title="New Matiere"
+                onClick={onNewMatiereClicked}
+            >
+                <i>M+</i>
+                
+            </button>
+        )
+    }
+
+    let newCategoryButton = null
+    if (CATEGORYS_REGEX.test(pathname)) {
+        newCategoryButton = (
+            <button
+                className="icon-button"
+                title="New Category"
+                onClick={onNewCategoryClicked}
+            >
+                <i>C+</i>
+                
             </button>
         )
     }
@@ -97,6 +132,34 @@ const DashHeader = () => {
         )
     }
 
+    let matieresButton = null
+    if (!MATIERES_REGEX.test(pathname) && pathname.includes('/dash')) {
+        matieresButton = (
+            <button
+                className="icon-button"
+                title="Matieres"
+                onClick={onMatieresClicked}
+            >
+                <span>M</span>
+            </button>
+        )
+    }
+
+    
+    let categorysButton = null
+    if (!CATEGORYS_REGEX.test(pathname) && pathname.includes('/dash')) {
+        categorysButton = (
+            <button
+                className="icon-button"
+                title="Categories"
+                onClick={onCategorysClicked}
+            >
+                <span>C</span>
+            </button>
+        )
+    }
+
+
     const logoutButton = (
         <button
             className="icon-button"
@@ -116,9 +179,13 @@ const DashHeader = () => {
         buttonContent = (
             <>
                 {newNoteButton}
+                {newMatiereButton}
                 {newUserButton}
+                {newCategoryButton}
                 {notesButton}
                 {userButton}
+                {matieresButton}
+                {categorysButton}
                 {logoutButton}
             </>
         )

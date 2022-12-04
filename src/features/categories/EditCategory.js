@@ -1,21 +1,21 @@
 import { useParams } from 'react-router-dom'
-import EditNoteForm from './EditNoteForm'
-import { useGetNotesQuery } from './notesApiSlice'
+import EditCategoryForm from './EditCategoryForm'
+import { useGetCategorysQuery } from './categorysApiSlice'
 import { useGetUsersQuery } from '../users/usersApiSlice'
 import useAuth from '../../hooks/useAuth'
 import PulseLoader from 'react-spinners/PulseLoader'
 import useTitle from '../../hooks/useTitle'
 
-const EditNote = () => {
-    useTitle('Kis@rr-Web : Edit Note')
+const EditCategory = () => {
+    useTitle('Kis@rr-Web : Edit Catégorie')
 
-    const { id } = useParams() 
+    const { id } = useParams()
 
     const { username, isManager, isAdmin } = useAuth()
 
-    const { note } = useGetNotesQuery("notesList", {
+    const { category } = useGetCategorysQuery("categorysList", {
         selectFromResult: ({ data }) => ({
-            note: data?.entities[id]
+          category: data?.entities[id]
         }),
     })
 
@@ -25,17 +25,17 @@ const EditNote = () => {
         }),
     })
 
-    if (!note || !users?.length) return <PulseLoader color={"#FFF"} />
+    if (!category || !users?.length) return <PulseLoader color={"#FFF"} />
 
 
     if (!isManager && !isAdmin) {
-        if (note.username !== username) {
+        if (category.username !== username) {
             return <p className="errmsg">No access</p>
         }
     }
 
-    const content = <EditNoteForm note={note} users={users} />
+    const content = <EditCategoryForm category={category} users={users} />
 
     return content
 }
-export default EditNote
+export default EditCategory

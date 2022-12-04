@@ -8,6 +8,7 @@ const notesAdapter = createEntityAdapter({
     sortComparer: (a, b) => (a.completed === b.completed) ? 0 : a.completed ? 1 : -1
 })
 
+
 const initialState = notesAdapter.getInitialState()
 
 export const notesApiSlice = apiSlice.injectEndpoints({
@@ -52,7 +53,7 @@ export const notesApiSlice = apiSlice.injectEndpoints({
                 url: '/notes',
                 method: 'PATCH',
                 body: {
-                    ...initialNote,
+                    ...initialNote, 
                 }
             }),
             invalidatesTags: (result, error, arg) => [
