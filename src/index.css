@@ -181,6 +181,10 @@ a:focus-visible {
   gap: 1em;
 }
 
+p .right {
+  display: right; 
+}
+
 .dash-footer__button {
   font-size: 1rem;
   width: auto;
