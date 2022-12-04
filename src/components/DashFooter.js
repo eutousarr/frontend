@@ -26,11 +26,13 @@ const DashFooter = () => {
     }
 
     const content = (
-        <footer className="dash-footer">
-            {goHomeButton}
-            <p>Current User: {username}</p>
-            <p>Status: {status}</p>
-            <p className="right">kisarrweb@gmail.com</p>
+        <footer className="dash-footer">            
+            <div>
+                {goHomeButton}
+                <p>Current User: {username}</p>
+                <p>Status: {status}</p>
+            </div>
+            <p>kisarrweb@gmail.com</p>
         </footer>
     )
     return content
