@@ -177,7 +177,7 @@ a:focus-visible {
   border-top: 1px solid var(--BORDER-COLOR);
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 1em;
 }
 
